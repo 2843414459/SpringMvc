@@ -77,11 +77,27 @@
       <div class="layui-side layui-side-menu">
         <div class="layui-side-scroll">
           <div class="layui-logo" lay-href="home/console.html">
-            <span>layuiAdmin</span>
+            <span>乐享洛阳-后台管理系统</span>
           </div>
           <!-- 菜单 -->
           <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
-            
+            <li data-name="home" class="layui-nav-item layui-nav-itemed">
+              <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                <i class="layui-icon layui-icon-home"></i>
+                <cite>主页</cite>
+              </a>
+              <dl class="layui-nav-child">
+                <dd data-name="console" class="layui-this">
+                  <a lay-href="${ctx}/">控制台</a>
+                </dd>
+                <dd data-name="console">
+                  <a lay-href="home/homepage1.html">主页一</a>
+                </dd>
+                <dd data-name="console">
+                  <a lay-href="home/homepage2.html">主页二</a>
+                </dd>
+              </dl>
+            </li>
           </ul>
         </div>
       </div>
@@ -113,7 +129,7 @@
       <!-- 主体内容 -->
       <div class="layui-body" id="LAY_app_body">
         <div class="layadmin-tabsbody-item layui-show">
-          <!-- <iframe src="home/console.html" frameborder="0" class="layadmin-iframe"></iframe> -->
+          <iframe src="${ctx}/homePage" frameborder="0" class="layadmin-iframe"></iframe>
         </div>
       </div>
       

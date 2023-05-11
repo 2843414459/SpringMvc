@@ -8,8 +8,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-<!--开启spring包草庙-->
-    <context:component-scan base-package="com.hzlx.controller"/>
+<!--开启spring包扫描-->
+    <context:component-scan base-package="com.hzlx"/>
 <!--    配置 处理器映射器 和处理器适配器-->
     <mvc:annotation-driven/>
     <!--以下配置的方式等同于上面的 <mvc:annotation-driven/> -->
@@ -19,9 +19,27 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
     -->
 
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.userName}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatisConfig.xml"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="com.hzlx.mapper"></property>
     </bean>
 <!--    静态资源放行-->
     <mvc:resources mapping="/static/**" location="/static/"/>

@@ -24,7 +24,7 @@
         <div>
             To keep connected with us please login with your personal information by account and password
         </div>
-        <form method="post" action="static/user/login.do">
+        <form method="post" action="user/login">
             <div class="input_box m_top_12">
                 <div class="input_img">
                     <img src="static/images/user_name.png"/>
@@ -45,7 +45,6 @@
                 <button type="submit" class="sub_btn">登录</button>
             </div>
         </form>
-
     </div>
 </div>
 </body>
