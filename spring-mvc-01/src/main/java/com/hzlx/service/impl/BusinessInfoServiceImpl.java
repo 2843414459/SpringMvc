@@ -16,10 +16,12 @@ public class BusinessInfoServiceImpl implements BusinessInfoService {
 
 
     @Autowired
-    BusinessMapper businessMapper ;
+    BusinessMapper businessMapper;
 
     @Override
     public BusinessInfo login(String userName, String password) {
+        System.out.println(businessMapper);
+        System.out.println(userName+password);
         BusinessInfo businessInfo = businessMapper.selectUserNameAndPwd(userName, password);
         return businessInfo;
     }

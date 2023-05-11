@@ -1,6 +1,7 @@
 package com.hzlx.mapper;
 
 import com.hzlx.entity.BusinessInfo;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -9,5 +10,5 @@ import org.apache.ibatis.annotations.Param;
  * 星期四
  */
 public interface BusinessMapper {
-    BusinessInfo selectUserNameAndPwd(@Param("userName") String userName, @Param("password") String password);
+    BusinessInfo selectUserNameAndPwd(@Param("userName") String userName,@Param("password") String password);
 }
