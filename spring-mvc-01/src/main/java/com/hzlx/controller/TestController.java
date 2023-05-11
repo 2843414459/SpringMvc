@@ -20,4 +20,9 @@ public class TestController {
     public String test(){
         return "hello,test";
     }
+
+    @RequestMapping("/home")
+    public String test2(){
+        return "system/home";
+    }
 }
